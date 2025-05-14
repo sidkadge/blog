@@ -35,7 +35,7 @@
                                 class="d-sm-none d-lg-inline-block"></span></a>
                         <div class="dropdown-menu dropdown-menu-right pullDown">
                     
-                            <a href="auth-login.html" class="dropdown-item has-icon text-danger"> <i
+                            <a href="<?= base_url('logout') ?>" class="dropdown-item has-icon text-danger"> <i
                                     class="fas fa-sign-out-alt"></i>
                                 Logout
                             </a>
@@ -53,7 +53,7 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">Main</li>
                         <li class="dropdown active">
-                            <a href="index.html" class="nav-link"><i
+                            <a href="<?php echo base_url() ?>dashboard" class="nav-link"><i
                                     data-feather="monitor"></i><span>Dashboard</span></a>
                         </li>
                         <li class="dropdown">

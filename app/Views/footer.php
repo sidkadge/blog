@@ -12,6 +12,7 @@ function submitBlogForm() {
     const form = document.getElementById('blogForm');
     const formData = new FormData(form);
 
+    // Auto-generate slug if not provided
     if (!formData.get('slug')) {
         const title = formData.get('title');
         const slug = title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
@@ -26,6 +27,13 @@ function submitBlogForm() {
     .then(result => {
         if (result.status === 'success') {
             alert('Blog saved successfully!');
+            // Clear form fields
+            form.reset(); // Reset non-file inputs
+            // Manually clear file input
+            const fileInput = form.querySelector('input[type="file"]');
+            if (fileInput) {
+                fileInput.value = ''; // Clear file input
+            }
         } else {
             alert('Error: ' + (result.message || 'Something went wrong.'));
         }
@@ -35,17 +43,12 @@ function submitBlogForm() {
         alert('An error occurred. Please try again.');
     });
 }
-</script>
 
-  <!-- General JS Scripts -->
+</script>
   <script src="<?=base_url(); ?>public/assets/js/app.min.js"></script>
-  <!-- JS Libraies -->
   <script src="<?=base_url(); ?>public/assets/bundles/apexcharts/apexcharts.min.js"></script>
-  <!-- Page Specific JS File -->
   <script src="<?=base_url(); ?>public/assets/js/page/index.js"></script>
-  <!-- Template JS File -->
   <script src="<?=base_url(); ?>public/assets/js/scripts.js"></script>
-  <!-- Custom JS File -->
   <script src="<?=base_url(); ?>public/assets/js/custom.js"></script>
 </body>
 
