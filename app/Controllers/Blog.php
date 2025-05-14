@@ -28,4 +28,8 @@ class Blog extends BaseController
 
         return view('blog/view', $data);
     }
+    public function login()
+    {
+     return view('login');
+    }
 }
