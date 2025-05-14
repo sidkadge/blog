@@ -13,4 +13,6 @@ class BlogModel extends Model
         'author', 'category', 'created_at', 'meta_title',
         'meta_keywords', 'meta_description'
     ];
+
 }
+
