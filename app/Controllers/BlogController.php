@@ -27,6 +27,7 @@ class BlogController extends BaseController
         'meta_keywords'     => $request->getPost('meta_keywords'),
         'meta_description'  => $request->getPost('meta_description'),
     ];
+    // print_r($data);die;
     $image = $request->getFile('image');
     if ($image && $image->isValid() && !$image->hasMoved()) {
         $newName = $image->getRandomName();
