@@ -12,10 +12,9 @@ class BlogController extends BaseController
     {
         return view('addblog');
     }
-   public function addBlog()
+ public function addBlog()
 {
     $request = $this->request;
-
     $data = [
         'title'             => $request->getPost('title'),
         'slug'              => $request->getPost('slug'),
@@ -28,18 +27,16 @@ class BlogController extends BaseController
         'meta_keywords'     => $request->getPost('meta_keywords'),
         'meta_description'  => $request->getPost('meta_description'),
     ];
-
     $image = $request->getFile('image');
     if ($image && $image->isValid() && !$image->hasMoved()) {
         $newName = $image->getRandomName();
-        $image->move(FCPATH . 'uploads/blogs', $newName);
-        $data['image'] = 'uploads/blogs/' . $newName;
+        $image->move(FCPATH . 'public/uploads', $newName);
+        $data['image'] = $newName;
     }
-
     $blogModel = new \App\Models\BlogModel();
     $blogModel->save($data);
-
     return $this->response->setJSON(['status' => 'success']);
 }
+
 
 }

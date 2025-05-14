@@ -11,6 +11,6 @@ $routes->get('/', 'Blog::index');
 $routes->get('blog', 'Blog::index');
 $routes->get('blog/(:segment)', 'Blog::view/$1');
 $routes->get('dashboard', 'BlogController::getdashboard');
-$routes->post('addblog', 'BlogController::addblog');
+$routes->post('addblogs', 'BlogController::addblog');
 $routes->get('getaddblog', 'BlogController::getaddblog');
 
