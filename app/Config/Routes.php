@@ -14,3 +14,5 @@ $routes->get('dashboard', 'BlogController::getdashboard');
 $routes->post('addblogs', 'BlogController::addblog');
 $routes->get('getaddblog', 'BlogController::getaddblog');
 
+$routes->get('login', 'Blog::login');
+

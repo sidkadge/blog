@@ -13,9 +13,21 @@
         <?= $blog['content'] ?>
     </div>
     <div class="social-share">
-        <a href="https://twitter.com/share?url=<?= current_url() ?>" target="_blank">Twitter</a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=<?= current_url() ?>" target="_blank">Facebook</a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= current_url() ?>" target="_blank">LinkedIn</a>
+
+    <a href="https://twitter.com/share?url=<?= current_url() ?>" target="_blank" class="social-icon twitter-icon" aria-label="Share on Twitter">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<?= current_url() ?>" target="_blank" class="social-icon facebook-icon" aria-label="Share on Facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= current_url() ?>" target="_blank" class="social-icon linkedin-icon" aria-label="Share on LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    
+
     </div>
 </article>
 <aside>
