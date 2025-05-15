@@ -8,20 +8,52 @@
     <meta name="description" content="<?= esc($meta_description ?? '') ?>">
     <link rel="stylesheet" href="<?= base_url('public/css/style.css') ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>My Blog</h1>
         <a href="<?= base_url('login') ?>" class="login-link">Login</a>
     </header>
-    <main>
+
+    <main id="main-content">
         <?= $this->renderSection('content') ?>
     </main>
+
     <footer>
         <p>&copy; <?= date('Y') ?> My Blog. All rights reserved.</p>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mainContent = document.getElementById('main-content');
+
+        function loadBlog(slug) {
+            fetch('<?= base_url('blog/ajaxView/') ?>' + slug)
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to load');
+                    return response.text();
+                })
+                .then(html => {
+                    mainContent.innerHTML = html;
+                    history.pushState(null, '', '<?= base_url('blog/') ?>' + slug);
+                })
+                .catch(() => {
+                    mainContent.innerHTML = '<p>Could not load blog content.</p>';
+                });
+        }
+
+        document.body.addEventListener('click', function (e) {
+            const link = e.target.closest('.blog-link');
+            if (link && link.dataset.slug) {
+                e.preventDefault();
+                loadBlog(link.dataset.slug);
+            }
+        });
+
+        window.addEventListener('popstate', function () {
+            location.reload(); // Optional: Handle back/forward nav
+        });
+    });
+    </script>
 </body>
 </html>

@@ -1,7 +1,3 @@
-<?= $this->extend('layouts/main') ?>
-
-<?= $this->section('content') ?>
-
 <article>
     <h1><?= esc($blog['title']) ?></h1>
     <img src="<?= base_url('public/uploads/' . $blog['image']) ?>" alt="Blog Image">
@@ -13,7 +9,7 @@
     <div><?= $blog['content'] ?></div>
 
     <div class="social-share">
-        <a href="https://twitter.com/share?url=<?= current_url() ?>" target="_blank" class="social-icon twitter-icon" aria-label="Share on Twitter">
+         <a href="https://twitter.com/share?url=<?= current_url() ?>" target="_blank" class="social-icon twitter-icon" aria-label="Share on Twitter">
             <i class="fab fa-twitter"></i>
         </a>
         <a href="https://www.facebook.com/sharer/sharer.php?u=<?= current_url() ?>" target="_blank" class="social-icon facebook-icon" aria-label="Share on Facebook">
@@ -37,5 +33,3 @@
         <?php endforeach; ?>
     </ul>
 </aside>
-
-<?= $this->endSection() ?>
