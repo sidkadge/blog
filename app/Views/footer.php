@@ -66,19 +66,14 @@ document.querySelectorAll('.deleteBtn').forEach(btn => {
     });
 });
 });
-</script>
-  <script>
 function submitBlogForm() {
     const form = document.getElementById('blogForm');
     const formData = new FormData(form);
-
-    // Auto-generate slug if not provided
     if (!formData.get('slug')) {
         const title = formData.get('title');
         const slug = title.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
         formData.set('slug', slug);
     }
-
     fetch('<?= base_url('addblogs') ?>', {
         method: 'POST',
         body: formData
@@ -87,12 +82,10 @@ function submitBlogForm() {
     .then(result => {
         if (result.status === 'success') {
             alert('Blog saved successfully!');
-            // Clear form fields
-            form.reset(); // Reset non-file inputs
-            // Manually clear file input
+            form.reset(); 
             const fileInput = form.querySelector('input[type="file"]');
             if (fileInput) {
-                fileInput.value = ''; // Clear file input
+                fileInput.value = ''; 
             }
         } else {
             alert('Error: ' + (result.message || 'Something went wrong.'));
