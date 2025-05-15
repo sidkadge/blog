@@ -7,9 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 // $routes->get('/', 'Home::index');
+
 $routes->get('/', 'BlogController::index');
 $routes->get('blog', 'BlogController::index');
 $routes->get('blog/(:segment)', 'BlogController::view/$1');
+$routes->get('blog/ajaxView/(:segment)', 'BlogController::ajaxView/$1');
+$routes->get('login', 'BlogController::login');
+
 $routes->get('dashboard', 'BlogController::getdashboard');
 $routes->post('addblogs', 'BlogController::addblog');
 $routes->post('authenticate', 'Home::authenticate');
@@ -22,5 +26,5 @@ $routes->post('updateblog/(:num)', 'BlogController::updateblog/$1');
 $routes->post('deleteblog/(:num)', 'BlogController::deleteblog/$1');
 
 
-$routes->get('login', 'BlogController::login');
+
 
