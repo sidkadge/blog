@@ -52,16 +52,13 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Main</li>
-                        <li class="dropdown active">
-                            <a href="<?php echo base_url() ?>dashboard" class="nav-link"><i
-                                    data-feather="monitor"></i><span>Dashboard</span></a>
-                        </li>
+                      
                         <li class="dropdown">
                             <a href="#" class="menu-toggle nav-link has-dropdown"><i
                                     data-feather="briefcase"></i><span>Blogs</span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="nav-link" href="<?php echo base_url() ?>getaddblog">Create Blog</a></li>
-                                <!-- <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li> -->
+                                <li><a class="nav-link" href="<?php echo base_url() ?>getbloglist">blog list</a></li>
                             </ul>
                         </li>
                      

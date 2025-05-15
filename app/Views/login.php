@@ -88,7 +88,7 @@
             .then(response => response.json())
             .then(result => {
                 if (result.token) {
-                    window.location.href = "<?= base_url('dashboard') ?>";
+                    window.location.href = "<?= base_url('getaddblog') ?>";
                 } else {
                     alert(result.message || 'Login failed.');
                 }
