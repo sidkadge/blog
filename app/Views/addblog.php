@@ -5,7 +5,7 @@
          <div class="section-body">
              <div class="card">
                  <div class="card-header">
-                     <h4>Create / Edit Blog</h4>
+                     <h4>Create  Blog</h4>
                  </div>
                  <div class="card-body">
                      <form id="blogForm" enctype="multipart/form-data">
